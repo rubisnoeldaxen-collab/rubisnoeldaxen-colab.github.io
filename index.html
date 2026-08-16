@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Noel Daxen I. Rubis | Civil Engineering Student</title>
+
+    <meta name="description" content="Personal portfolio of Noel Daxen I. Rubis, a Civil Engineering student at Isabela State University.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b10;
+            color: #f1f5f9;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ===== BACKGROUND ===== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.12;
+            background-image:
+                linear-gradient(rgba(80, 150, 255, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(80, 150, 255, 0.15) 1px, transparent 1px);
+            background-size: 45px 45px;
+            mask-image: linear-gradient(to bottom, black, transparent 80%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            top: -180px;
+            right: -180px;
+            background: rgba(37, 99, 235, 0.14);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ===== NAVIGATION ===== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(8, 11, 16, 0.82);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 15px;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 14px;
+            color: #a8b3c2;
+        }
+
+        .nav-links a {
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* ===== GENERAL ===== */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 24px;
+        }
+
+        .section-label {
+            color: #60a5fa;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 5vw, 48px);
+            line-height: 1.1;
+            margin-bottom: 35px;
+        }
+
+        .section-line {
+            width: 70px;
+            height: 3px;
+            background: #3b82f6;
+            margin-bottom: 35px;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1100px;
+            margin: auto;
+            padding: 150px 24px 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            color: #60a5fa;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 92px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 25px);
+            color: #c4ccd6;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #8995a5;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .btn-primary:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover {
+            border-color: #60a5fa;
+            color: #60a5fa;
+            transform: translateY(-2px);
+        }
+
+        .engineering-tag {
+            margin-top: 70px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #64748b;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .engineering-tag::before {
+            content: "";
+            width: 45px;
+            height: 1px;
+            background: #334155;
+        }
+
+        /* ===== ABOUT ===== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text {
+            color: #aab4c2;
+            font-size: 16px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .info-card {
+            background: rgba(17, 24, 39, 0.72);
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .info-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #64748b;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .info-value {
+            color: #e2e8f0;
+            margin-top: 4px;
+            font-size: 14px;
+        }
+
+        /* ===== SKILLS ===== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .skill {
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            color: #cbd5e1;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .skill:hover {
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+        }
+
+        .skill-number {
+            color: #3b82f6;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* ===== PROJECTS ===== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 30px;
+            transition: 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #3b82f6;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #334155;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-number {
+            color: #3b82f6;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .project-school {
+            color: #60a5fa;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .project-card ul {
+            padding-left: 18px;
+            color: #8995a5;
+            font-size: 14px;
+        }
+
+        /* ===== EDUCATION ===== */
+
+        .timeline {
+            position: relative;
+            border-left: 1px solid #334155;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 45px 35px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: 9px;
+            height: 9px;
+            background: #3b82f6;
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px #080b10;
+        }
+
+        .timeline-date {
+            color: #60a5fa;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .timeline h3 {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .timeline p {
+            color: #8995a5;
+            font-size: 14px;
+        }
+
+        /* ===== ACHIEVEMENTS ===== */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .achievement {
+            padding: 25px;
+            border: 1px solid #1e293b;
+            background: rgba(15, 23, 42, 0.65);
+            border-radius: 8px;
+        }
+
+        .achievement-icon {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .achievement h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .achievement p {
+            color: #8995a5;
+            font-size: 13px;
+        }
+
+        /* ===== CONTACT ===== */
+
+        .contact-box {
+            border: 1px solid #1e293b;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(30px, 5vw, 50px);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #8995a5;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .email {
+            color: #60a5fa;
+            font-size: 16px;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            border-top: 1px solid #1e293b;
+            padding: 30px 24px;
+            text-align: center;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 35px 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .hero {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">NDR<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                CIVIL ENGINEERING • STUDENT PORTFOLIO
+            </div>
+
+            <h1>
+                NOEL DAXEN<br>
+                <span>I. RUBIS</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Civil Engineering Student
+            </p>
+
+            <p class="hero-description">
+                Motivated and academically consistent Civil Engineering student
+                with a strong STEM foundation, focused on structural mechanics,
+                technical drafting, and practical engineering applications.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    EXPLORE MY WORK
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    CONTACT ME
+                </a>
+            </div>
+
+            <div class="engineering-tag">
+                STRUCTURAL • DESIGN • ENGINEERING
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="section-label">01 / ABOUT</div>
+
+        <h2 class="section-title">
+            Building knowledge<br>
+            through engineering.
+        </h2>
+
+        <div class="section-line"></div>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am a Civil Engineering student at Isabela State University
+                    – Echague, developing a strong foundation in engineering
+                    mathematics, physics, technical drafting, and structural
+                    concepts.
+                </p>
+
+                <p>
+                    My academic experience has allowed me to work with AutoCAD,
+                    technical documentation, structural calculations, surveying
+                    concepts, and practical STEM applications.
+                </p>
+
+                <p>
+                    I aim to continuously improve my technical skills while
+                    developing the discipline, analytical thinking, and
+                    attention to detail required in the field of Civil Engineering.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <div class="info-item">
+                    <div class="info-label">Location</div>
+                    <div class="info-value">
+                        Echague, Isabela, Philippines
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">University</div>
+                    <div class="info-value">
+                        Isabela State University – Echague
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Degree</div>
+                    <div class="info-value">
+                        Bachelor of Science in Civil Engineering
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Status</div>
+                    <div class="info-value">
+                        Student • Open to Learning Opportunities
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="section-label">02 / CAPABILITIES</div>
+
+        <h2 class="section-title">
+            Engineering skills.
+        </h2>
+
+        <div class="section-line"></div>
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                <div class="skill-number">01</div>
+                Structural Drafting
+            </div>
+
+            <div class="skill">
+                <div class="skill-number">02</div>
+                AutoCAD 2D Design
+            </div>
+
+            <div class="skill">
+                <div class="skill-number">03</div>
+                Engineering Calculations
+            </div>
+
+            <div class="skill">
+                <div class="skill-number">04</div>
+                Topographic Mapping
+            </div>
+
+            <div class="skill">
+                <div class="skill-number">05</div>
+                Material Estimation
+            </div>
+
+            <div class="skill">
+                <div class="skill-number">06</div>
+                Technical Reporting
+            </div>
+
+            <div class="skill">
+                <div class="skill-number">07</div>
+                Problem Solving
+            </div>
+
+            <div class="skill">
+                <div class="skill-number">08</div>
+                Blueprint Reading
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="section-label">03 / EXPERIENCE</div>
+
+        <h2 class="section-title">
+            Projects & training.
+        </h2>
+
+        <div class="section-line"></div>
+
+        <div class="projects-grid">
+
+            <article class="project-card">
+
+                <div class="project-number">PROJECT 01</div>
+
+                <h3>
+                    Academic Civil Drafting
+                    & Layout Simulation
+                </h3>
+
+                <div class="project-school">
+                    Isabela State University — College of Engineering
+                </div>
+
+                <ul>
+                    <li>
+                        Created precise 2D architectural and structural
+                        floor layouts using AutoCAD.
+                    </li>
+
+                    <li>
+                        Computed foundation load distributions and
+                        material quantities for small-scale framing exercises.
+                    </li>
+
+                    <li>
+                        Prepared technical documentation and project
+                        drawings for academic presentations.
+                    </li>
+                </ul>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <div class="project-number">PROJECT 02</div>
+
+                <h3>
+                    STEM Applied Physics
+                    & Mathematics Practical Lab
+                </h3>
+
+                <div class="project-school">
+                    San Isidro National High School
+                </div>
+
+                <ul>
+                    <li>
+                        Performed trigonometric leveling and angle
+                        measurements during school-based land surveying simulations.
+                    </li>
+
+                    <li>
+                        Analyzed structural stress distribution and
+                        material strengths as part of advanced STEM experiments.
+                    </li>
+                </ul>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+        <div class="section-label">04 / EDUCATION</div>
+
+        <h2 class="section-title">
+            Academic foundation.
+        </h2>
+
+        <div class="section-line"></div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    AUG 2025 — PRESENT
+                </div>
+
+                <h3>
+                    Isabela State University – Echague
+                </h3>
+
+                <p>
+                    Bachelor of Science in Civil Engineering (BSCE)
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    AUG 2023 — APR 2025
+                </div>
+
+                <h3>
+                    San Isidro National High School
+                </h3>
+
+                <p>
+                    STEM Strand — Senior High School
+                    <br>
+                    With High Honors
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    JUNE 2019 — JULY 2023
+                </div>
+
+                <h3>
+                    San Isidro National High School
+                </h3>
+
+                <p>
+                    Junior High School — With Honors
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+
+    <section id="achievements">
+
+        <div class="section-label">05 / ACHIEVEMENTS</div>
+
+        <h2 class="section-title">
+            Academic milestones.
+        </h2>
+
+        <div class="section-line"></div>
+
+        <div class="achievement-grid">
+
+            <div class="achievement">
+
+                <div class="achievement-icon">◆</div>
+
+                <h3>With High Honors</h3>
+
+                <p>
+                    Maintained outstanding academic standing
+                    throughout Senior High School, A.Y. 2023–2025.
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <div class="achievement-icon">◇</div>
+
+                <h3>MTAP Math Competition</h3>
+
+                <p>
+                    Official school representative for secondary
+                    mathematics, Grade 7, A.Y. 2019–2020.
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <div class="achievement-icon">◆</div>
+
+                <h3>Consistent Honor Student</h3>
+
+                <p>
+                    Earned academic honors consecutively across
+                    Junior High School and Elementary education.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="contact-box">
+
+            <div class="section-label">
+                06 / CONTACT
+            </div>
+
+            <h2>
+                Let's connect.
+            </h2>
+
+            <p>
+                For academic opportunities, engineering-related
+                collaboration, or professional inquiries, feel free
+                to reach out.
+            </p>
+
+            <a
+                class="email"
+                href="mailto:rubisnoeldaxen@gmail.com"
+            >
+                rubisnoeldaxen@gmail.com
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 Noel Daxen I. Rubis
+        <br>
+        Civil Engineering Student
+    </footer>
+
+</body>
+</html>
